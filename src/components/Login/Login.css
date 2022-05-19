@@ -1,0 +1,42 @@
+.form-container {
+  width: 600px;
+  margin: 0 auto;
+  border: 1px solid #95a0a7;
+  box-sizing: border-box;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+}
+
+.form-link {
+  color: #ff9900 !important;
+  text-decoration: none !important;
+  font-weight: bold !important;
+}
+.form-link:hover {
+  transition: all 0.5s;
+  color: #0051ff !important;
+  text-decoration: none !important;
+}
+.social-login {
+  display: flex;
+  flex-direction: column;
+}
+
+/* responsive for service */
+@media only screen and (max-width: 576px) {
+  .form-container {
+    width: 90% !important;
+  }
+
+}
+@media only screen and (min-width: 576px) and (max-width: 992px) {
+  .form-container {
+    width: 60% !important;
+  }
+}
+@media only screen and (min-width: 992px) and (max-width: 1400px) {
+  .form-container {
+    width: 60% !important;
+  }
+}
