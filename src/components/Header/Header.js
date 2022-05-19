@@ -26,7 +26,7 @@ const Header = () => {
                     alt=""
                   />
                 </div>
-                <div className="">Click-Life</div>
+                <div className="">To do</div>
               </div>
             </Navbar.Brand>
           </LinkContainer>

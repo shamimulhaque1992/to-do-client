@@ -30,18 +30,7 @@ const Home = () => {
 
   return (
     <div>
-      <h2>Available Users: {todos.length}</h2>
-      <ul>
-        {todos.map((todo) => (
-          <li key={todo._id}>
-            {todo.name}:: {todo.email}
-            <Link to={`/update/${todo._id}`}>
-              <button>Update</button>
-            </Link>
-            <button onClick={() => handleUserDelete(todo._id)}>X</button>
-          </li>
-        ))}
-      </ul>
+      
     </div>
   );
 };
