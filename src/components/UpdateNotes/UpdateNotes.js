@@ -5,7 +5,7 @@ const UpdateNotes = () => {
     const {id} = useParams();
     const [todo, setTodo] = useState({});
     useEffect( () =>{
-        const url = `http://localhost:5000/notes/${id}`;
+        const url = `https://polar-gorge-40067.herokuapp.com/notes/${id}`;
         fetch(url)
         .then(res => res.json())
         .then(data => setTodo(data));
@@ -19,7 +19,7 @@ const UpdateNotes = () => {
         const updatedTodo = {name, description};
 
         // send data to the server
-        const url = `http://localhost:5000/notes/${id}`;
+        const url = `https://polar-gorge-40067.herokuapp.com/notes/${id}`;
         fetch(url, {
             method: 'PUT',
             headers: {

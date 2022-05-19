@@ -2,9 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import {
-  useSignInWithEmailAndPassword,
-  useSignInWithFacebook,
-  useSignInWithGoogle,
+  useSignInWithEmailAndPassword
 } from "react-firebase-hooks/auth";
 import { useSendPasswordResetEmail } from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -35,9 +33,9 @@ const Login = () => {
     const emailRegex = /\S+@\S+\.\S+/.test(event.target.value);
     if (emailRegex) {
       setEmail(event.target.value);
-      setErrors({...errors, email:""});
+      setErrors({ ...errors, email: "" });
     } else {
-      setErrors({...errors, email:"❌ Invalid Email"});
+      setErrors({ ...errors, email: "❌ Invalid Email" });
       setEmail("");
     }
   };
@@ -49,9 +47,9 @@ const Login = () => {
       );
     if (passRegex) {
       setPassword(event.target.value);
-      setErrors({...errors, password:""});
+      setErrors({ ...errors, password: "" });
     } else {
-      setErrors({...errors, password:"❌ Invalid Password"});
+      setErrors({ ...errors, password: "❌ Invalid Password" });
       setPassword("");
     }
   };
@@ -67,36 +65,7 @@ const Login = () => {
     signInWithEmailAndPassword(email, password);
   };
 
-  // Signin with google functionality
-  const [signInWithGoogle, googleuser, googleloading, googleerror] =
-    useSignInWithGoogle(auth);
-  useEffect(() => {
-    if (googleuser) {
-      navigate(from, { replace: true });
-    }
-    if (googleloading) {
-      <Loading></Loading>;
-    }
-    if (googleerror) {
-      toast("something went worng");
-    }
-  });
 
-  // Signin with google functionality
-  const [signInWithFacebook, facebookuser, facebookloading, facebookerror] =
-    useSignInWithFacebook(auth);
-
-  useEffect(() => {
-    if (facebookuser) {
-      navigate(from, { replace: true });
-    }
-    if (facebookloading) {
-      <Loading></Loading>;
-    }
-    if (facebookerror) {
-      toast("something went worng");
-    }
-  });
 
   // Password reset functionality
   const [sendPasswordResetEmail, sending, reseterror] =
@@ -128,7 +97,7 @@ const Login = () => {
   return (
     <div className="">
       <h1 className="text-center pt-4 mt-4 text-primary">
-        Welcome to Click-Life! Please Login...
+        Welcome to To do! Please Login...
       </h1>
       <div className="form-container mx-auto mt-5 mb-5">
         <Form className="form-body mx-auto" onSubmit={handleUserSignIn}>
@@ -169,7 +138,12 @@ const Login = () => {
           <p style={{ color: "red" }}>{error?.message}</p>
           {loading && <p>Loading...</p>}
 
-          <Button className="mb-3 d-flex justify-content-center align-items-center" variant="primary" type="submit"><i class="fa-solid fa-right-from-bracket"></i>
+          <Button
+            className="mb-3 d-flex justify-content-center align-items-center"
+            variant="primary"
+            type="submit"
+          >
+            <i class="fa-solid fa-right-from-bracket"></i>
             <span className="mx-1">Login</span>
           </Button>
           <div className="google-siginn d-flex">
@@ -178,25 +152,7 @@ const Login = () => {
             <hr className="w-50" />
           </div>
           <br />
-          <div className="social-login">
-            <Button
-              onClick={() => signInWithGoogle()}
-              className="mb-3 d-flex justify-content-around align-items-center"
-              variant="primary"
-              type="submit"
-            ><i class="fa-brands fa-google"></i>
-              <span>Login With Google.</span>
-            </Button>
-            <br />
-            <Button
-              onClick={() => signInWithFacebook()}
-              className="mb-3 d-flex justify-content-around align-items-center"
-              variant="primary"
-              type="submit"
-            ><i class="fa-brands fa-facebook-f"></i>
-              <span>Login With Facebook.</span>
-            </Button>
-          </div>
+
           <br />
           <Button
             onClick={SendPasswordReset}

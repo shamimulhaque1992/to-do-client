@@ -10,7 +10,7 @@ const AddNotes = () => {
     const user = { name, description };
 
     // send data to the server
-    fetch("http://localhost:5000/notes", {
+    fetch("https://polar-gorge-40067.herokuapp.com/notes", {
       method: "POST",
       headers: {
         "content-type": "application/json",

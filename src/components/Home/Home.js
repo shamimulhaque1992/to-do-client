@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Home = () => {
   const [todos, setTodos] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/notes")
+    fetch("https://polar-gorge-40067.herokuapp.com/notes")
       .then((res) => res.json())
       .then((data) => setTodos(data));
   }, []);
@@ -13,7 +13,7 @@ const Home = () => {
     const proceed = window.confirm("Are you sure you want to delete?");
     if (proceed) {
       console.log("deleting user with id, ", id);
-      const url = `http://localhost:5000/notes/${id}`;
+      const url = `https://polar-gorge-40067.herokuapp.com/notes/${id}`;
       fetch(url, {
         method: "DELETE",
       })
